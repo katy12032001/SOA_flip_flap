@@ -31,14 +31,14 @@ module TsvBuddy
     keys = @data[0].keys
     format_string << keys[0]
     keys.shift
-    keys.each { |key| format_string << "\t" + key }
+    keys.each { |key| format_string << "\t" << key }
     format_string << "\n"
     # print value
     @data.each do |element|
       # avoid "\t" at the tail of line
       format_string << element.values[0]
       element.shift
-      element.each_value { |value| format_string << "\t" + value }
+      element.each_value { |value| format_string << "\t" << value }
       format_string << "\n"
     end
     format_string
